@@ -52,9 +52,11 @@ export const handleWebhook = asyncHandler(
   async (req: Request, res: Response): Promise<void> => {
     console.log("📩 Webhook received:", req.body);
 
+    // Return confirmation to external API
     res.status(200).json({
-      status: "received",
-      payload: req.body,
+      status: "success",
+      message: "Webhook received successfully",
+      data: req.body, // echo back received payload
     });
   }
 );
