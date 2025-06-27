@@ -7,8 +7,6 @@ import mainRoute from "./routes/webhook/webhook.route.js"
 
 const app = express();
 
-// routes
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
