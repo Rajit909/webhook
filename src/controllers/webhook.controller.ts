@@ -15,34 +15,46 @@ import axios from "axios";
  */
 
 
+// export const handleWebhook = asyncHandler(
+//   async (req: Request, res: Response): Promise<void> => {
+//     const { url } = req.body;
+
+//     if (!url) {
+//       res.status(400).json({
+//         status: 'error',
+//         message: 'Missing "url" in request body',
+//       });
+//       return;
+//     }
+
+//     try {
+//       const response = await axios.get(url);
+
+//       res.json({
+//         status: 'success',
+//         requestedUrl: url,
+//         externalData: response.data,
+//       });
+//     } catch (error: any) {
+//       console.error('❌ Error fetching URL:', error.message);
+
+//       res.status(500).json({
+//         status: 'error',
+//         message: 'Failed to fetch data from the provided URL',
+//         error: error.message,
+//       });
+//     }
+//   }
+// );
+
+
 export const handleWebhook = asyncHandler(
   async (req: Request, res: Response): Promise<void> => {
-    const { url } = req.body;
+    console.log("📩 Webhook received:", req.body);
 
-    if (!url) {
-      res.status(400).json({
-        status: 'error',
-        message: 'Missing "url" in request body',
-      });
-      return;
-    }
-
-    try {
-      const response = await axios.get(url);
-
-      res.json({
-        status: 'success',
-        requestedUrl: url,
-        externalData: response.data,
-      });
-    } catch (error: any) {
-      console.error('❌ Error fetching URL:', error.message);
-
-      res.status(500).json({
-        status: 'error',
-        message: 'Failed to fetch data from the provided URL',
-        error: error.message,
-      });
-    }
+    res.status(200).json({
+      status: "received",
+      payload: req.body,
+    });
   }
 );
