@@ -56,7 +56,7 @@ export const handleWebhook = asyncHandler(
     res.status(200).json({
       status: "success",
       message: "Webhook received successfully",
-      data: req.body, // echo back received payload
+      data: req.body,
     });
   }
 );

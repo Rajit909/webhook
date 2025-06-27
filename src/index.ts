@@ -19,9 +19,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
-// user routes
-
 app.use('/api/v1/', mainRoute);
 
 
