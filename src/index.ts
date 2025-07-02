@@ -19,7 +19,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/api/v1/', mainRoute);
+app.use('/api/v1', mainRoute);
 
 
 app.get('/', (_, res) => {   
