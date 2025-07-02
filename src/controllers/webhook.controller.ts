@@ -2,7 +2,6 @@
 import { Request, Response } from "express";
 
 import asyncHandler from "../utils/asyncHandler.js";
-import axios from "axios";
 
 
 /**
