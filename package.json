@@ -4,12 +4,12 @@
   "description": "microservice for auth",
   "main": "server.js",
   "type": "module",
- "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "build": "tsc",
-  "start": "node dist/server.js",
-  "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
-},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "concurrently \"tsc -w\" \"nodemon dist/server.js\""
+  },
   "author": "rajit",
   "license": "ISC",
   "dependencies": {
@@ -17,13 +17,14 @@
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.3",
     "axios": "^1.9.0",
+    "concurrently": "^9.1.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "datauri": "^4.1.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "googleapis": "^148.0.0",
-    "concurrently": "^9.1.2",
+    "mysql2": "^3.14.1",
     "nodemon": "^3.1.10"
   },
   "devDependencies": {
