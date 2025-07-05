@@ -1,11 +1,13 @@
 import mongoose from 'mongoose';
 
 const webhookSchema = new mongoose.Schema({
+  requestId: String,
+  timestamp: { type: Date, default: Date.now },
   method: String,
+  path: String,
   headers: Object,
   query: Object,
   body: mongoose.Schema.Types.Mixed,
-  timestamp: { type: Date, default: Date.now }
 });
 
 const WebhookLog = mongoose.model('WebhookLog', webhookSchema);
