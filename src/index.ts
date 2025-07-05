@@ -38,6 +38,19 @@ app.use((req, res, next) => {
 app.use(cors({ origin: '*', credentials: false }));
 
 // Routes
+app.get('/api/v1/webhook', (req, res) => {
+  res.status(200).send('✅ Webhook is alive and reachable');
+});
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+  next();
+});
+app.all('/api/v1/webhook', (req, res, next) => {
+  console.log('🔥 Received request on /webhook');
+  next();
+});
+
+
 app.use('/api/v1', mainRoute);
 
 // Health check
