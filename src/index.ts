@@ -29,7 +29,7 @@ app.use((req, res, next) => {
       req.body = JSON.parse(req.body);
     }
   } catch (err: any) {
-    console.warn('❌ Failed to parse body as JSON:', err.message);
+    console.warn('Failed to parse body as JSON:', err.message);
   }
   next();
 });
@@ -39,14 +39,10 @@ app.use(cors({ origin: '*', credentials: false }));
 
 // Routes
 app.get('/api/v1/webhook', (req, res) => {
-  res.status(200).send('✅ Webhook is alive and reachable');
+  res.status(200).send(' Webhook is alive and reachable');
 });
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
-  next();
-});
-app.all('/api/v1/webhook', (req, res, next) => {
-  console.log('🔥 Received request on /webhook');
   next();
 });
 
